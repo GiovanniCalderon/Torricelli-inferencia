@@ -5,8 +5,8 @@ type: dataset
 authors:
   - family-names: "Calderón"
     given-names: "Giovanni"
-    affiliation: "Universidad Industrial de Santander"
-    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+    affiliation: "Unidades Tecnológicas de Santander"
+    # orcid: "https://orcid.org/0000-0002-0183-5494"
 version: "1.0.0"
 date-released: "2026-10-12"
 license: CC-BY-4.0
