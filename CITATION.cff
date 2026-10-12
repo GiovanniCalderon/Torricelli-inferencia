@@ -6,7 +6,7 @@ authors:
   - family-names: "Calderón"
     given-names: "Giovanni"
     affiliation: "Unidades Tecnológicas de Santander"
-    # orcid: "https://orcid.org/0000-0002-0183-5494"
+    orcid: "https://orcid.org/0000-0002-0183-5494"
 version: "1.0.0"
 date-released: "2026-10-12"
 license: CC-BY-4.0
