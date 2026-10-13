@@ -5,7 +5,6 @@
 %\usepackage{subcaption}
 %\usepackage[latin1]{inputenc}
 \usepackage{amsmath,amstext,amsfonts,amssymb,amsbsy,amscd,mathrsfs,array}
-\usepackage{minted}
 \usepackage{multirow,xcolor,enumerate,float}
 \linespread{1.0}
 % Utilidades matematicas
@@ -47,7 +46,7 @@
 %\renewcommand\displaystyle{ds}
 \newtheorem{defii}{Problema}
 \newcommand{\pro}[1]{\begin{defii}{\rm {#1}}\end{defii}}
-\decimalpoint
+\providecommand{\smallpencil}{}% vacío si la instalación no lo define
 \newcommand{\dirfig}{figuras/}
 %\renewcommand{\tablename}{Tabla}
 
@@ -82,10 +81,10 @@
 	
 	\vspace{.6cm}
 	\selectlanguage{spanish}
-%	\ifdefined\decimalpoint\decimalpoint\fi
+	\ifdefined\decimalpoint\decimalpoint\fi
 	
 	\section{Introducción}
-	La {\it ley de Torricelli}\footnote{Evangelista Torricelli (Faenza, en la actual Italia, 1608, Florencia, 1647) fue un físico y matemático italiano. Se le atribuye la invención del barómetro. Asimismo, sus aportaciones a la geometría fueron determinantes en el desarrollo del cálculo integral.} establece que la velocidad de salida de un líquido por un orificio en un recipiente es igual a la que alcanzaría un cuerpo en caída libre desde la superficie del líquido hasta dicho orificio \cite{Boyce, Zill1, Zill2, FoxMcDonald2015}. Esta ley se deduce de la aplicación del principio de Bernoulli a fluidos ideales bajo la acción de la gravedad.
+	La {\it ley de Torricelli}\footnote{Evangelista Torricelli (Faenza, en la actual Italia, 1608--Florencia, 1647) fue un físico y matemático italiano. Se le atribuye la invención del barómetro. Asimismo, sus aportaciones a la geometría fueron determinantes en el desarrollo del cálculo integral.} establece que la velocidad de salida de un líquido por un orificio en un recipiente es igual a la que alcanzaría un cuerpo en caída libre desde la superficie del líquido hasta dicho orificio \cite{Boyce, Zill1, Zill2, FoxMcDonald2015}. Esta ley se deduce de la aplicación del principio de Bernoulli a fluidos ideales bajo la acción de la gravedad.
 	
 	En esta actividad se estudia el vaciado de un tanque por un orificio mediante un balance de volumen y la ley de Torricelli, con el propósito de construir un modelo matemático que describa la evolución del nivel del líquido en el tiempo. A diferencia del enfoque directo, en el que se calcula la solución a partir de parámetros conocidos, aquí se considera también el problema inverso: utilizar mediciones del nivel del agua para estimar un parámetro hidráulico del sistema que no se observa directamente.
 	
@@ -181,13 +180,13 @@
 	\subsection{Linealización del modelo}
 	De la solución \eqref{ec2} se sigue que la variable $y(t)=\sqrt{h(t)}$ satisface una relación lineal en el tiempo,
 	\begin{equation}\label{ec3}
-		y(t)=\sqrt{h_0}-\beta t ,
+		y(t)=\sqrt{h_0}-\frac{\beta}{2}\, t ,
 	\end{equation}
 	donde
 	\begin{equation}\label{ec4}
-		\beta=\frac{1}{2} C_d \frac{r^2}{R^2} \sqrt{2 g}.
+		\beta= C_d \frac{r^2}{R^2} \sqrt{2 g}.
 	\end{equation}
-	Así, en el plano $(t,y)$ los datos deben alinearse sobre una recta de pendiente $-\beta$ y ordenada en el origen $\sqrt{h_0}$. La pendiente estimada por mínimos cuadrados proporciona $\beta$ y, despejando $r$ de \eqref{ec4}, se obtiene el radio efectivo del orificio. Observe que los datos de un solo experimento determinan $C_d$ y $r$ solo a través del producto $C_d\,r^2$. Por esa razón se realiza el experimento nominal: como en él el radio $r_0$ es conocido, su pendiente $\beta_0$ permite calibrar el coeficiente de descarga del prototipo.
+	Con esta notación, la ecuación \eqref{ec1} se escribe $dh/dt=-\beta\sqrt{h}$, de modo que $\beta$ es el coeficiente de la propia ecuación diferencial. En el plano $(t,y)$ los datos deben alinearse sobre una recta de pendiente $-\beta/2$ y ordenada en el origen $\sqrt{h_0}$. La pendiente estimada por mínimos cuadrados proporciona $\beta$ y, despejando $r$ de \eqref{ec4}, se obtiene el radio efectivo del orificio. Observe que los datos de un solo experimento determinan $C_d$ y $r$ solo a través del producto $C_d\,r^2$. Por esa razón se realiza el experimento nominal: como en él el radio $r_0$ es conocido, su pendiente $\beta_0$ permite calibrar el coeficiente de descarga del prototipo.
 	
 	\subsection{Objetivo del análisis}
 	El propósito del análisis es utilizar los datos medidos por el grupo para estimar los parámetros del modelo y evaluar su significado físico. En particular, se busca:
@@ -234,8 +233,8 @@
 		\begin{enumerate}
 			\item Plantee las ecuaciones normales del ajuste por mínimos cuadrados del modelo lineal $y=a+m t$ y resuélvalas.
 			\item Reporte los valores estimados de $a$ y $m$ con sus unidades.
-			 Interprete físicamente el valor estimado de $a$, compárelo con $\sqrt{h_0}$ medido y calcule el error relativo.
-			\item Determine $\beta_0=-m$ (nominal) y $\beta=-m$ (modificada).
+			\item Interprete físicamente el valor estimado de $a$, compárelo con $\sqrt{h_0}$ medido y calcule el error relativo.
+			\item Determine $\beta_0=-2m$ (nominal) y $\beta=-2m$ (modificada).
 			\item Grafique en una misma figura los datos transformados y las rectas ajustadas.
 			\item Grafique los residuos $y_i-(a+m t_i)$. ¿Muestran algún patrón sistemático? ¿Es su tamaño compatible con la resolución de la escala y con la dispersión entre repeticiones? Si hay un patrón, discuta cuál hipótesis del modelo podría estar fallando.
 		\end{enumerate}
@@ -410,37 +409,37 @@ $ y la nota final sobre 100 puntos es $N=\sum_i P_i$.
 
 
 
-\bibliographystyle{achicago}
-%\bibliography{theBiblio}
-
 \begin{thebibliography}{99}
-	\bibitem{Boyce} William E. Boyce and Richard C. DiPrima \emph{Ecuaciones diferenciales y problemas con valores en la frontera},
-	cuarta edición, Limusa, 2000.
-
-%	\bibitem{Zill1} Zill, D., Warren, S. \emph{Ecuaciones Diferenciales con problemas con valores en la frontera}, 8 ed, Cengage Learning, México, 2015.
-
-	\bibitem{Zill2} Zill, D., Warren, S. \emph{Matemáticas Avanzadas Para Ingeniería}, 4 ed, McGraw-Hill, México, 2012.
+	\bibitem{Boyce} Boyce, W. E., DiPrima, R. C. \emph{Ecuaciones diferenciales y problemas con valores en la frontera}, 4.\textordfeminine\ ed., Limusa, México, 2000.
+	% VERIFICAR: edición y año con la portadilla del ejemplar usado.
 	
-\bibitem{NFPA2024}
-National Fire Protection Association.
-\newblock \textit{Tank Talk: Water Storage Tanks for Fire Protection Systems}.
-\newblock October 30, 2024.
-\newblock Available at:
-\url{https://www.nfpa.org/news-blogs-and-articles/blogs/2024/10/30/nfpa-22-and-water-storage-tanks}
-\newblock Accessed: March 28, 2026.
-
-\bibitem{IFP2024}
-IFP Magazine.
-\newblock \textit{What Constitutes NFPA 22 Compliance and Equivalency?}
-\newblock 2024.
-\newblock Available at:
-\url{https://ifpmag.com/what-constitutes-nfpa-22-compliance-and-equivalency/}
-%\newblock Accessed: March 28, 2026.
-
-\bibitem{FoxMcDonald2015}
-Fox, R. W., McDonald, A. T., \& Pritchard, P. J.
-\newblock \textit{Introduction to Fluid Mechanics}.
-\newblock 8th edition, John Wiley \& Sons, 2015.
+	\bibitem{Zill1} Zill, D. G., Wright, W. S. \emph{Ecuaciones diferenciales con problemas con valores en la frontera}, 8.\textordfeminine\ ed., Cengage Learning, México, 2015.
+	
+	\bibitem{Zill2} Zill, D. G., Wright, W. S. \emph{Matemáticas avanzadas para ingeniería}, 4.\textordfeminine\ ed., McGraw-Hill, México, 2012.
+	
+	\bibitem{NFPA2024}
+	National Fire Protection Association.
+	\newblock \textit{Tank Talk: Water Storage Tanks for Fire Protection Systems}.
+	\newblock 30 de octubre de 2024.
+	\newblock Disponible en:
+	\url{https://www.nfpa.org/news-blogs-and-articles/blogs/2024/10/30/nfpa-22-and-water-storage-tanks}.
+	\newblock Consultado el 28 de marzo de 2026.
+	
+	\bibitem{IFP2024}
+	IFP Magazine.
+	\newblock \textit{What Constitutes NFPA 22 Compliance and Equivalency?}
+	\newblock 2024.
+	\newblock Disponible en:
+	\url{https://ifpmag.com/what-constitutes-nfpa-22-compliance-and-equivalency/}.
+	\newblock Consultado el 28 de marzo de 2026.
+	
+	\bibitem{FoxMcDonald2015}
+	Fox, R. W., McDonald, A. T., Pritchard, P. J.
+	\newblock \textit{Introduction to Fluid Mechanics}.
+	\newblock 9th ed., John Wiley \& Sons, 2015.
+	% VERIFICAR: hasta donde se sabe, la 8.a ed. (2011) es de Fox, McDonald y Pritchard,
+	% y la 9.a ed. figura como Pritchard y Mitchell, "Fox and McDonald's Introduction to
+	% Fluid Mechanics". Ajustar autores y título según el ejemplar consultado.
 \end{thebibliography}
 
 
