@@ -26,11 +26,9 @@ con los parámetros
 
 y redondeando cada valor a dos cifras decimales, lo que representa la resolución de 0.01 m de un sensor de nivel. No se añadió ninguna otra perturbación.
 
-## Observación sobre el dato en t = 2400 s
+## Nota de versión
 
-Con los parámetros anteriores, el modelo da h(2400) = 6.3846 m, que redondea a 6.38 m. El archivo contiene 6.39 m, igual que el artículo. Los otros doce valores coinciden exactamente con el modelo redondeado. El script `codigo/python/verificacion_actividad_sintetica.py` reporta esta diferencia.
-
-<!-- PENDIENTE: decidir si se corrige a 6.38 (artículo y actividad) o se documenta el origen del 6.39. -->
+En versiones anteriores del artículo y de la actividad, el dato en t = 2400 s aparecía como 6.39 m. El modelo da h(2400) = 6.3846 m, cuyo redondeo correcto es 6.38 m, que es el valor que contiene este archivo. Con él, los trece datos coinciden exactamente con el modelo redondeado.
 
 ## Generar un conjunto nuevo para clase
 
