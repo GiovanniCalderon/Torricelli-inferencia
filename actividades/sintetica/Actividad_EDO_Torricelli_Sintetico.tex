@@ -178,9 +178,6 @@ Para el tanque bajo estudio se tienen los valores del Cuadro \ref{tab:parametros
 \end{table}
 
 Durante la prueba de drenaje se registraron los niveles del Cuadro \ref{tab:datos_altura}. Estos datos son sintéticos: se generaron con el modelo \eqref{ec2} para un radio efectivo conocido por el docente y se redondearon a dos cifras decimales, lo que reproduce la resolución finita (0.01 m) de un sensor de nivel. No contienen otras fuentes de error, de modo que permiten evaluar qué tan bien se recupera el parámetro cuando la única perturbación es la resolución de la medida.
-% NOTA (pendiente de decisión del autor): con r = 0.035 m, Cd = 0.61, g = 9.81 m/s^2
-% y h0 = 10 m, el modelo da h(2400) = 6.3846 m, que redondea a 6.38 y no a 6.39.
-% El mismo valor aparece en el artículo; decidir allí y aquí de forma coherente.
 \begin{table}[H]
 	\centering
 	\small
@@ -191,7 +188,7 @@ Durante la prueba de drenaje se registraron los niveles del Cuadro \ref{tab:dato
 		& 0 & 300 & 600 & 900 & 1200 & 1500 & 1800 & 2100 & 2400 & 2700 & 3000 & 3300 & 3600 \\
 		\hline\\[-12pt]
 		$h$ (m)
-		& 10.00 & 9.50 & 9.02 & 8.55 & 8.09 & 7.65 & 7.21 & 6.79 & 6.39 & 5.99 & 5.61 & 5.24 & 4.88\\
+		& 10.00 & 9.50 & 9.02 & 8.55 & 8.09 & 7.65 & 7.21 & 6.79 & 6.38 & 5.99 & 5.61 & 5.24 & 4.88\\
 		\hline
 	\end{tabular}
 	\caption{Mediciones sintéticas del nivel del agua, redondeadas a dos cifras decimales.}\label{tab:datos_altura}
@@ -200,13 +197,13 @@ Durante la prueba de drenaje se registraron los niveles del Cuadro \ref{tab:dato
 \subsection{Linealización del modelo}
 De la solución \eqref{ec2} se sigue que la variable $y(t)=\sqrt{h(t)}$ satisface una relación lineal en el tiempo,
 \begin{equation}\label{ec3}
-	y(t)=\sqrt{h_0}-\beta t ,
+	y(t)=\sqrt{h_0}-\frac{\beta}{2}\, t ,
 \end{equation}
 donde
 \begin{equation}\label{ec4}
-	\beta=\frac{1}{2} C_d \frac{r^2}{R^2} \sqrt{2 g}.
+	\beta= C_d \frac{r^2}{R^2} \sqrt{2 g}.
 \end{equation}
-Así, en el plano $(t,y)$ los datos deben alinearse sobre una recta de pendiente $-\beta$ y ordenada en el origen $\sqrt{h_0}$. La pendiente estimada por mínimos cuadrados proporciona $\beta$ y, despejando $r$ de \eqref{ec4}, se obtiene el radio efectivo del orificio. Observe que los datos determinan $C_d$ y $r$ solo a través del producto $C_d\,r^2$; por eso, para estimar $r$ se adopta el valor esperado $C_d=0.61$ del Cuadro \ref{tab:parametros}.
+Con esta notación, la ecuación \eqref{ec1} se escribe $dh/dt=-\beta\sqrt{h}$, de modo que $\beta$ es el coeficiente de la propia ecuación diferencial. En el plano $(t,y)$ los datos deben alinearse sobre una recta de pendiente $-\beta/2$ y ordenada en el origen $\sqrt{h_0}$. La pendiente estimada por mínimos cuadrados proporciona $\beta$ y, despejando $r$ de \eqref{ec4}, se obtiene el radio efectivo del orificio. Observe que los datos determinan $C_d$ y $r$ solo a través del producto $C_d\,r^2$; por eso, para estimar $r$ se adopta el valor esperado $C_d=0.61$ del Cuadro \ref{tab:parametros}.
 
 \subsection{Objetivo del análisis}
 El propósito del análisis es utilizar los datos disponibles para estimar los parámetros del modelo y evaluar su significado físico. En particular, se busca:
@@ -236,7 +233,7 @@ Todos los resultados numéricos deben expresarse con sus unidades físicas y con
 		\item Plantee las ecuaciones normales del ajuste por mínimos cuadrados del modelo lineal $y=a+m t$ y resuélvalas.
 		\item Reporte los valores estimados de $a$ y $m$ con sus unidades.
 		\item Interprete físicamente el valor estimado de $a$, compárelo con $\sqrt{h_0}$ y calcule el error relativo.
-		\item Determine el valor estimado del parámetro $\beta=-m$.
+		\item Determine el valor estimado del parámetro $\beta=-2m$.
 		\item Grafique en una misma figura los datos transformados y la recta ajustada.
 		\item Grafique los residuos $y_i-(a+m t_i)$. ¿Muestran algún patrón? ¿Es su tamaño compatible con el redondeo de $h$ a dos cifras decimales?
 	\end{enumerate}
