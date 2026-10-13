@@ -24,11 +24,13 @@ datos/
   experimental/    plantilla CSV para los datos que registran los grupos
 codigo/
   python/          verificación numérica y generación de figuras esquemáticas
-  matlab/          código del artículo
+  matlab/          código que reproduce las tablas y figuras del artículo
 figuras/           figuras esquemáticas generadas por código
 ```
 
 ## Reproducir los resultados
+
+### Python (actividad sintética)
 
 Requisitos: Python 3.9 o superior con `numpy` y `matplotlib` (ver [`codigo/python/requirements.txt`](codigo/python/requirements.txt)).
 
@@ -39,6 +41,10 @@ python codigo/python/figuras_esquematicas.py              # figuras esquemática
 ```
 
 El script de verificación incluye el ajuste por mínimos cuadrados (resuelto con las ecuaciones normales y contrastado con `numpy.polyfit`), el radio efectivo, el ECM, una integración RK4 comparada con la solución exacta y un control que regenera los datos a partir del modelo.
+
+### MATLAB (artículo)
+
+Los scripts de [`codigo/matlab/`](codigo/matlab/) reproducen las Tablas II, V y VI y las Figuras 3 a 6 del artículo. Requieren MATLAB R2020a o posterior y Optimization Toolbox. Ver [`codigo/matlab/README.md`](codigo/matlab/README.md), que incluye la equivalencia entre la notación de β del artículo y la de las actividades ($\beta_{\text{artículo}} = 2\,\beta_{\text{actividad}}$).
 
 Para compilar los enunciados se necesita una distribución LaTeX con `babel` en español. Ejecute `pdflatex` dos veces dentro de la carpeta de cada actividad.
 
