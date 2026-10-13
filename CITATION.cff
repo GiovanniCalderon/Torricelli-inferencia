@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si utiliza este material, por favor cítelo como se indica a continuación."
+title: "Modelado e inferencia de parámetros en el vaciado de tanques mediante la ley de Torricelli: actividades de clase, datos y código"
+type: dataset
+authors:
+  - family-names: "Calderón"
+    given-names: "Giovanni"
+    affiliation: "Unidades Tecnológicas de Santander"
+    orcid: "https://orcid.org/0000-0002-0183-5494"
+version: "1.0.0"
+date-released: "2026-10-12"
+license: CC-BY-4.0
+repository-code: "https://github.com/GiovanniCalderon/Torricelli-inferencia"
+keywords:
+  - ecuaciones diferenciales ordinarias
+  - ley de Torricelli
+  - problema inverso
+  - mínimos cuadrados
+  - material didáctico
