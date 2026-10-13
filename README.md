@@ -1,5 +1,7 @@
 # Modelado e inferencia de parámetros en el vaciado de tanques mediante la ley de Torricelli
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23344407.svg)](https://doi.org/10.5281/zenodo.23344407)
+
 Material de clase para el curso de Ecuaciones Diferenciales Ordinarias del ciclo común de ingeniería. A partir del vaciado de un tanque cilíndrico, el estudiante resuelve una EDO separable, la linealiza con el cambio de variable $y=\sqrt{h}$ y plantea un **problema inverso**: estimar el radio efectivo de un orificio de descarga obstruido a partir de mediciones del nivel del agua.
 
 El repositorio contiene dos versiones de la actividad, los datos y el código que reproduce todos los resultados numéricos.
@@ -61,7 +63,9 @@ La imagen del tanque usada en ambos enunciados (`EsquemaTanqueTuberiaCorroida.pn
 
 ## Cómo citar
 
-Ver [`CITATION.cff`](CITATION.cff). GitHub muestra el botón *Cite this repository* a partir de ese archivo.
+Calderón, G. (2026). *Modelado e inferencia de parámetros en el vaciado de tanques mediante la ley de Torricelli: actividades de clase, datos y código* (v1.0.0) [Conjunto de datos]. Zenodo. https://doi.org/10.5281/zenodo.23344407
+
+Ver también [`CITATION.cff`](CITATION.cff); GitHub muestra el botón *Cite this repository* a partir de ese archivo.
 
 ## Contacto
 
