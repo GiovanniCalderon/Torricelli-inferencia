@@ -10,7 +10,7 @@ con el modelo (2) para r_real = 0.035 m y se redondearon a dos decimales;
 no contienen otro ruido. El script lo comprueba al final.
 
 Uso:  python verificacion_actividad_A.py
-Requiere: numpy (matplotlib opcional, solo para figuras del solucionario).
+Requiere: numpy.
 """
 import numpy as np
 
